@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build:css": "cross-env NODE_ENV=production ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\"",
+    "build:css-dev": "cross-env NODE_ENV=development ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\"",
+    "watch:css": "cross-env NODE_ENV=production ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\" --watch",
+    "watch:css-dev": "cross-env NODE_ENV=development ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\" --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "cross-env": "^7.0.0",
+    "postcss-cli": "^7.1.0",
+    "postcss-discard-comments": "^4.0.2",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.2.0"
+  }
+}
