@@ -1,6 +1,6 @@
 .DS_Store
 .idea/
 node_modules
-*.css
-*.css.map
-*.js
+assets/css/dist/*.css
+assets/css/dist/*.css.map
+assets/js/dist/*.js
