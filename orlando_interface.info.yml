@@ -5,8 +5,15 @@ description: 'Orlando Interface theme.'
 package: Core
 version: VERSION
 core: 8.x
+
 libraries:
   - orlando_interface/global-styling
+
+libraries-override:
+  classy/base:
+    css:
+      component:
+        css/components/menu.css: false
 
 regions:
   header: Header
@@ -21,5 +28,5 @@ regions:
   sidebar_second: 'Sidebar second'
   featured_bottom_first: 'Featured bottom first'
   featured_bottom_second: 'Featured bottom second'
-  footer_first: 'Footer first'
-  footer_second: 'Footer second'
+  footer_top: 'Footer top'
+  footer_bottom: 'Footer bottom'
