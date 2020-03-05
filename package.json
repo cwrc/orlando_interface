@@ -1,17 +1,55 @@
 {
   "private": true,
   "scripts": {
+    "build": "yarn build:css & yarn build:js",
+    "watch": "yarn watch:css & yarn watch:js",
+    "build:js": "cross-env BABEL_ENV=legacy node ./scripts/js/babel-es6-build.js",
+    "build:js-dev": "cross-env NODE_ENV=development BABEL_ENV=legacy node ./scripts/js/babel-es6-build.js",
     "build:css": "cross-env NODE_ENV=production ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\"",
     "build:css-dev": "cross-env NODE_ENV=development ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\"",
     "watch:css": "cross-env NODE_ENV=production ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\" --watch",
     "watch:css-dev": "cross-env NODE_ENV=development ./node_modules/.bin/postcss \"assets/css/src\" --dir \"assets/css/dist\" --base \"assets/css/src\" --watch"
   },
   "devDependencies": {
+    "@tailwindcss/ui": "^0.1.2",
     "autoprefixer": "^9.7.4",
+    "babel-core": "^6.26.3",
+    "babel-plugin-add-header-comment": "^1.0.3",
+    "babel-preset-env": "^1.7.0",
     "cross-env": "^7.0.0",
     "postcss-cli": "^7.1.0",
+    "postcss-custom-properties": "^9.1.1",
     "postcss-discard-comments": "^4.0.2",
     "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.2.0"
+  },
+  "//": "'development is the default environment, and legacy is for transpiling the old jQuery codebase",
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": "commonjs",
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      },
+      "legacy": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": false
+            }
+          ]
+        ]
+      }
+    }
   }
 }

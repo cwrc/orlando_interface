@@ -1,7 +1,14 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   prefix: 'tw-',
   theme: {
     colors: {
+      transparent: 'transparent',
+
+      white: '#fff',
+      black: '#000',
+
       gray: {
         100: '#f6f6f6',
         200: '#cbcbca',
@@ -18,8 +25,16 @@ module.exports = {
         200: '#034970',
       }
     },
-    extend: {},
+    fontFamily: {
+      sans: ['"NotoSans"', ...defaultTheme.fontFamily.sans],
+    },
+    extend: {
+      fontSize: {
+        '4xl': '2.125rem',
+        '2xl': '1.375rem',
+      }
+    },
   },
   variants: {},
-  plugins: [],
+  plugins: []
 }
