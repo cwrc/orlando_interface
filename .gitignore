@@ -4,3 +4,4 @@ node_modules
 assets/css/dist/*.css
 assets/css/dist/*.css.map
 assets/js/dist/*.js
+yarn-error.log
