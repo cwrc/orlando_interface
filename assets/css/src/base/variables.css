@@ -1,0 +1,18 @@
+/*
+  Custom CSS properties.
+  These are "compiled" by postcss/postcss-custom-properties for IE11 compatibility.
+*/
+
+:root {
+  --color-gray-100: '#f6f6f6';
+  --color-gray-200: '#cbcbca';
+  --color-gray-300: '#939392';
+  --color-gray-400: '#696868';
+  --color-gray-500: '#1d1d1d';
+
+  --color-red-100: '#981915';
+  --color-red-200: '#6d0a18';
+
+  --color-blue-100: '#00649b';
+  --color-blue-200: '#034970';
+}

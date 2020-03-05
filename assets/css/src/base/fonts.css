@@ -1,0 +1,24 @@
+/**
+ * @file
+ * Base Fonts.
+ */
+
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../fonts/NotoSans/NotoSans-Regular.woff2') format('woff2'),
+  url('../../fonts/NotoSans/NotoSans-Regular.woff') format('woff'),
+  url('../../fonts/NotoSans/NotoSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoSans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../../fonts/NotoSans/NotoSans-Bold.woff2') format('woff2'),
+  url('../../fonts/NotoSans/NotoSans-Bold.woff') format('woff'),
+  url('../../fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
+}

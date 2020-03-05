@@ -6,11 +6,9 @@
  * https://github.com/tailwindcss/tailwindcss/blob/master/base.css
  */
 @import "tailwindcss/base";
-
-/**
- * Injecting our own base styles.
- */
+@import "base/fonts.css";
 @import "base/base.css";
 
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "components/navigation.css";

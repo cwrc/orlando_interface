@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Main navigation.
+ */
+
+@import "../base/variables.css";
+
+.navigation.menu--main > .menu > li > a,
+.navigation.menu--footer > .menu > li > a,
+.navigation.menu--main > .menu > li,
+.navigation.menu--footer > .menu > li {
+  @apply block;
+  height: 100%;
+}
+
+@media (max-width: theme('screens.sm')) {
+  .menu--main > .menu > li > a,
+  .menu--footer > .menu > li > a {
+    @apply py-3 px-3;
+  }
+  .menu--main > .menu > li + li > a {
+    @apply border-t border-white;
+  }
+}
+
+@screen sm {
+  .navigation.menu--main > .menu > li > a {
+    @apply inline-flex items-center px-1 pt-2 border-b-4 border-transparent text-sm font-bold leading-5 transition duration-150 ease-in-out;
+  }
+  .navigation.menu--main > .menu > li + li > a {
+    @apply ml-8;
+  }
+  .navigation.menu--main > .menu > li > a:focus {
+    @apply outline-none;
+  }
+  .navigation.menu--main > .menu > li > a:hover {
+    @apply border-gray-100;
+  }
+  .navigation.menu--main > .menu > li + li > a.is-active {
+    @apply border-white;
+  }
+}
