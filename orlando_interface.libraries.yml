@@ -3,3 +3,7 @@ global-styling:
   css:
     base:
       assets/css/dist/tailwind.css: {}
+  js:
+    assets/js/src/navigation.es6.js: {}
+  dependencies:
+    - core/drupal

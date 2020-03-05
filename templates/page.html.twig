@@ -45,23 +45,36 @@
  * @see html.html.twig
  */
 #}
+<div id="page-wrapper" class="tw-font-sans">
+  <div id="page" class="tw-antialiased tw-text-gray-500">
 
-<div id="page-wrapper" class="tw-container tw-mx-auto">
-  <div id="page">
-
-    <header id="header" role="banner">
+    <header id="header" role="banner" class="tw-relative tw-px-3 md:tw-px-0">
       {{ page.header }}
+      {# menu toggle button #}
+      <div class="tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center sm:tw-hidden">
+        <button class="mobile-nav-button tw-inline-flex tw-items-center tw-justify-center tw-p-2 tw-rounded-md tw-text-gray-400 hover:tw-text-gray-500 hover:tw-bg-gray-100 focus:tw-outline-none focus:tw-bg-gray-100 focus:tw-text-gray-500 tw-transition tw-duration-150 tw-ease-in-out">
+          <svg class="tw-h-6 tw-w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path class="mobile-nav-button--hamburger tw-inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path class="mobile-nav-button--close tw-hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </header>
 
+    {% if page.primary_menu %}
+      <div id="primary-menu-wrapper" class="primary-menu-wrapper tw-bg-red-200 tw-text-white tw-uppercase tw-hidden sm:tw-block">
+        {{ page.primary_menu }}
+      </div>
+    {% endif %}
     {% if page.highlighted %}
-      <div class="highlighted">
-        <aside class="tw-clearfix" role="complementary">
+      <div class="highlighted tw-px-3 md:tw-px-0">
+        <aside role="complementary">
           {{ page.highlighted }}
         </aside>
       </div>
     {% endif %}
-    <div id="main-wrapper" class="tw-clearfix">
-      <div id="main" class="tw-clearfix">
+    <div id="main-wrapper" class="tw-container tw-mx-auto">
+      <div id="main" class="tw-clearfix tw-py-16 tw-px-3 md:tw-px-0">
 
         {{ page.breadcrumb }}
 
@@ -89,26 +102,49 @@
       </div>
     </div>
     {% if page.featured_bottom_first or page.featured_bottom_second %}
-      <div class="featured-bottom">
-        <aside class="tw-clearfix" role="complementary">
+      <div class="featured-bottom" class="tw-container tw-mx-auto">
+        <aside class="tw-clearfix tw-px-3 md:tw-px-0" role="complementary">
           {{ page.featured_bottom_first }}
           {{ page.featured_bottom_second }}
         </aside>
       </div>
     {% endif %}
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <div class="tw-container">
-          <div>
-            {% if page.footer_first or page.footer_second %}
-              <div class="tw-clearfix">
-                {{ page.footer_first }}
-                {{ page.footer_second }}
+      {% if page.footer_top or page.footer_bottom %}
+        <div class="tw-bg-red-200 tw-text-white tw-py-5">
+          <div class="tw-container tw-mx-auto">
+            {{ page.footer_top }}
+            <div class="sm:tw-flex sm:tw-justify-between tw-px-3 md:tw-px-0">
+              <p>
+                <span class="tw-flex tw-flex-wrap tw-content-center tw-text-sm">{{ 'Presented by'|t }}</span>
+                <img class="tw-w-auto tw-h-10" src="/{{ active_theme_path() }}/assets/images/logo-cup-red.svg">
+              </p>
+              <div class="tw-h-8 tw-flex tw-items-center tw-text-white tw-mt-4 sm:tw-mt-0">
+                <span class="tw-flex tw-flex-wrap tw-content-center tw-text-sm">{{ 'Join us online'|t }}</span>
+                <a href="https://www.facebook.com/CambridgeCore" class="tw-ml-3 hover:tw-text-gray-200">
+                  <span class="tw-sr-only">Facebook</span>
+                  <svg class="tw-h-8 tw-w-8 hover:tw-border-gray-200 tw-border-white tw-border tw-rounded-full tw-flex tw-items-center tw-justify-center" fill="currentColor" viewBox="0 0 32 32">
+                    <g fill="none" fill-rule="evenodd"><path d="M18.748 10.669h1.385V8.066l-2.227.005c-2.628 0-3.397 1.4-3.397 3.632l.002 2.088h-2.044v2.082h2.044V24.2h3.066v-8.327h2.045l.511-2.082h-2.556s-.029-1.724 0-2.602c.013-.435.152-.52 1.171-.52" fill="currentColor"/></g>
+                  </svg>
+                </a>
+                <a href="https://twitter.com/CambridgeCore" class="tw-ml-4 hover:tw-text-gray-200">
+                  <span class="tw-sr-only">Twitter</span>
+                  <svg class="tw-h-8 tw-w-8 hover:tw-border-gray-200 tw-border-white tw-border tw-rounded-full tw-flex tw-items-center tw-justify-center" fill="currentColor" viewBox="0 0 32 32">
+                    <g fill="none" fill-rule="evenodd"><path d="M24.736 11.84a6.947 6.947 0 01-1.965.53 3.373 3.373 0 001.504-1.857 6.943 6.943 0 01-2.171.814 3.445 3.445 0 00-2.497-1.06c-1.889 0-3.42 1.502-3.42 3.356 0 .263.03.52.089.765a9.77 9.77 0 01-7.049-3.507 3.292 3.292 0 00-.463 1.688c0 1.164.604 2.191 1.521 2.793a3.46 3.46 0 01-1.549-.42v.042c0 1.626 1.18 2.983 2.743 3.291a3.484 3.484 0 01-1.544.058 3.417 3.417 0 003.195 2.33 6.946 6.946 0 01-5.063 1.39 9.808 9.808 0 005.242 1.508c6.29 0 9.73-5.113 9.73-9.55 0-.145-.003-.29-.01-.433a6.86 6.86 0 001.707-1.737" fill="currentColor"/></g>
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/user/CambridgeJournals" class="tw-ml-4 hover:tw-text-gray-200">
+                  <span class="tw-sr-only">Youtube</span>
+                  <svg class="tw-h-8 tw-w-8 hover:tw-border-gray-200 tw-border-white tw-border tw-rounded-full tw-flex tw-items-center tw-justify-center" fill="currentColor" viewBox="0 0 32 32">
+                    <g fill="none" fill-rule="evenodd"><g fill="currentColor"><path d="M21.553 14.403h-1.045v-.588c-.397.441-.733.664-1.1.664-.321 0-.544-.147-.656-.413-.068-.162-.116-.414-.116-.785V9.006h1.046v4.382c.024.15.09.204.223.204.2 0 .381-.169.603-.471V9.006h1.045v5.397zM17.865 10.77c0-.577-.12-1.01-.33-1.282-.28-.37-.716-.52-1.156-.52-.499 0-.878.15-1.156.52-.215.272-.33.71-.33 1.286l-.001 1.919c0 .574.102.97.317 1.24.278.368.73.563 1.17.563.44 0 .9-.196 1.178-.564.21-.27.308-.665.308-1.239V10.77zm-1.046 2.03c.055.534-.116.8-.44.8-.325 0-.496-.266-.44-.8v-2.137c-.056-.534.115-.785.44-.785.324 0 .496.25.44.785V12.8zM13.736 11.464v2.939h-1.1v-2.939s-1.142-3.603-1.377-4.275h1.156l.772 2.815.769-2.815h1.157l-1.377 4.275zM18.329 20.27c-.165 0-.352.084-.52.243v3.241c.166.161.355.243.52.243.287 0 .417-.205.417-.739V20.96c0-.534-.13-.69-.417-.69M22.434 20.912c0-.494-.131-.642-.462-.642-.333 0-.474.136-.474.635v.592l.936-.001v-.584z"/><path d="M24.693 18.177s-.16-1.094-.653-1.576c-.625-.633-1.326-.636-1.647-.673-2.3-.16-5.751-.16-5.751-.16h-.007s-3.451 0-5.751.16c-.322.037-1.022.04-1.647.673-.493.482-.653 1.576-.653 1.576s-.165 1.286-.165 2.571v1.205c0 1.285.165 2.57.165 2.57s.16 1.096.653 1.578c.625.632 1.446.612 1.812.678 1.315.122 5.59.16 5.59.16s3.454-.005 5.754-.166c.321-.037 1.022-.04 1.647-.672.493-.482.653-1.577.653-1.577s.165-1.286.165-2.57v-1.206c0-1.285-.165-2.57-.165-2.57zM12.03 24.808h-1.1v-6.144H9.771v-1.015l3.468-.001v1.016h-1.21v6.144zm3.964 0h-1.046v-.588c-.396.442-.732.664-1.1.664-.32 0-.544-.147-.655-.413-.068-.162-.116-.414-.116-.785v-4.221h1.045v4.327c.025.15.09.206.223.206.2 0 .382-.17.603-.473v-4.06h1.046v5.343zm3.799-1.603c0 .494-.044.842-.11 1.068-.133.397-.424.604-.82.604-.355 0-.718-.207-1.05-.607l-.002.538h-.991v-7.16h.99v2.334c.321-.384.686-.603 1.053-.603.396 0 .663.223.796.622.067.215.134.561.134 1.066v2.138zm2.19.793c.245 0 .387-.13.445-.389.009-.052.007-.283.007-.671h1.046v.15c0 .313-.027.534-.035.63a1.344 1.344 0 01-.234.58c-.275.388-.684.579-1.205.579-.522 0-.918-.183-1.206-.547-.212-.267-.348-.664-.348-1.232v-1.87c0-.57.124-1.012.335-1.282.289-.365.686-.558 1.195-.558.5 0 .896.193 1.176.558.208.27.324.687.324 1.259v1.091h-1.984v.96c-.003.493.141.742.484.742z"/></g></g>
+                  </svg>
+                </a>
               </div>
-            {% endif %}
+            </div>
           </div>
         </div>
-      </div>
+      {% endif %}
     </footer>
   </div>
+  <div class="wrapLowerFooter" id="global-foot"></div>
 </div>
